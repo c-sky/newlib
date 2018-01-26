@@ -122,6 +122,9 @@ case "${host_cpu}" in
   crx*)
 	machine_dir=crx
 	;;
+  csky)
+	machine_dir=csky
+	;;
   d10v*)
 	machine_dir=d10v
 	;;
@@ -424,6 +427,9 @@ case "${host}" in
   crx*)
 	sys_dir=
 	;;
+  csky*)
+	sys_dir=
+	;;
   d10v*)
 	sys_dir=d10v
 	;;
@@ -665,6 +671,10 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
   crx-*-*)
 	newlib_cflags="${newlib_cflags} -DHAVE_RENAME -DMISSING_SYSCALL_NAMES"
 	syscall_dir=
+	;;
+  csky*)
+	syscall_dir=
+	newlib_cflags="${newlib_cflags} -DHAVE_RENAME -DHAVE_SYSTEM -DMISSING_SYSCALL_NAMES"
 	;;
   d10v*)
 	newlib_cflags="${newlib_cflags} -DSMALL_MEMORY"

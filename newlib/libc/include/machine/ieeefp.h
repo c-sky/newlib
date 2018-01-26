@@ -302,6 +302,14 @@
 #define __IEEE_LITTLE_ENDIAN
 #endif
 
+#ifdef __CSKY__
+#if (defined(__FLOAT_WORD_ORDER__) && defined(_ORDER_BIG_ENDIAN__) && __FLOAT_WORD_ORDER__ == __ORDER_BIG_ENDIAN__)
+#define __IEEE_BIG_ENDIAN
+#else
+#define __IEEE_LITTLE_ENDIAN
+#endif
+#endif
+
 #ifdef __fr30__
 #define __IEEE_BIG_ENDIAN
 #endif
