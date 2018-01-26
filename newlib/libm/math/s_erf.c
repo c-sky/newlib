@@ -290,6 +290,8 @@ sb7  = -2.24409524465858183362e+01; /* 0xC03670E2, 0x42712D62 */
 	if(hx>=0) return one-r/x; else return  r/x-one;
 }
 
+/* Hack to work around compiler/assembler bug.  */
+#if (!defined(__CSKYABIV2__) || !defined(__CK801__))
 #ifdef __STDC__
 	double erfc(double x) 
 #else
@@ -355,5 +357,6 @@ sb7  = -2.24409524465858183362e+01; /* 0xC03670E2, 0x42712D62 */
 	    if(hx>0) return tiny*tiny; else return two-tiny;
 	}
 }
+#endif /* !CK801  */
 
 #endif /* _DOUBLE_IS_32BITS */
